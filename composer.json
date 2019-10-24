@@ -1,0 +1,16 @@
+{
+    "name": "mkgor/pipeline",
+    "description": "Simple middlewares provider",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gor Mkhitaryan",
+            "email": "gor.mhitaryan@list.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpunit/phpunit": "^8.4"
+    }
+}
