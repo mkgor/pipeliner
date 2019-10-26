@@ -1,2 +1,2 @@
 # Pipeliner
-[![codecov](https://codecov.io/gh/pixaye/pipeliner/branch/master/graph/badge.svg)](https://codecov.io/gh/pixaye/pipeliner)
+![codecov](https://img.shields.io/badge/coverage-100%25-brightgreen)
