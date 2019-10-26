@@ -2,9 +2,7 @@
 
 namespace Test\Sample;
 
-use Pipeliner\Bag\BagInterface;
 use Pipeliner\Middleware\AbstractMiddleware;
-use Pipeliner\MiddlewareInterface;
 
 /**
  * Class ThirdMiddleware

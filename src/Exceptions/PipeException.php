@@ -2,13 +2,15 @@
 
 namespace Pipeliner\Exceptions;
 
+use Exception;
+
 /**
  * Class PipeException
  *
  * @package Exceptions
  * @codeCoverageIgnore
  */
-class PipeException extends \Exception
+class PipeException extends Exception
 {
     /**
      * PipeException constructor.

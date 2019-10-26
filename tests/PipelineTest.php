@@ -2,33 +2,42 @@
 
 namespace Test;
 
+use PHPUnit\Framework\TestCase;
 use Pipeliner\Bag\RuntimeBag;
 use Pipeliner\Exceptions\PipeException;
+use Pipeliner\Middleware\ClosureMiddleware;
 use Pipeliner\Middleware\MiddlewareInterface;
 use Pipeliner\Pipeline;
+use ReflectionException;
 use Test\Sample\FirstMiddleware;
 use Test\Sample\InvalidMiddleware;
 use Test\Sample\SecondMiddleware;
 use Test\Sample\ThirdMiddleware;
 
-class PipelineTest extends \PHPUnit\Framework\TestCase
+class PipelineTest extends TestCase
 {
     /**
      * @var Pipeline
      */
     private $pipeline;
 
+    /**
+     * @throws ReflectionException
+     */
     public function setUp(): void
     {
         $this->pipeline = new Pipeline(new RuntimeBag());
 
         $this->pipeline->pipe(new FirstMiddleware());
         $this->pipeline->pipe(new SecondMiddleware());
+        $this->pipeline->pipe(new ClosureMiddleware('iAmClosureMiddleware', function(){
+            return true;
+        }));
     }
 
     /**
-     * @throws \Pipeline\Exceptions\PipeException
-     * @throws \ReflectionException
+     * @throws PipeException
+     * @throws ReflectionException
      */
     public function testExec()
     {
@@ -42,7 +51,7 @@ class PipelineTest extends \PHPUnit\Framework\TestCase
 
     public function test__construct()
     {
-        $bag = new \Pipeliner\Bag\RuntimeBag();
+        $bag = new RuntimeBag();
         $bag->put('Test', 'data');
 
         $this->assertEquals('data', (new Pipeline($bag))->getPipelineBag()->getLast());
@@ -50,7 +59,7 @@ class PipelineTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws PipeException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function testExecWaitingForMiddleware()
     {
@@ -63,7 +72,7 @@ class PipelineTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws PipeException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function testExecInvalidMiddleware()
     {

@@ -2,9 +2,13 @@
 
 namespace Pipeliner;
 
+use Closure;
 use Pipeliner\Bag\BagInterface;
 use Pipeliner\Exceptions\PipeException;
 use Pipeliner\Middleware\MiddlewareInterface;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionMethod;
 
 /**
  * Class Pipeline
@@ -34,6 +38,7 @@ class Pipeline
 
     /**
      * @param BagInterface $pipelineBag
+     *
      * @codeCoverageIgnore
      */
     public function setPipelineBag(BagInterface $pipelineBag)
@@ -64,6 +69,7 @@ class Pipeline
      * Sets the pipeline
      *
      * @param MiddlewareInterface[] $pipelineCollection
+     *
      * @codeCoverageIgnore
      */
     public function setPipelineCollection($pipelineCollection)
@@ -99,27 +105,26 @@ class Pipeline
      * @return BagInterface
      *
      * @throws PipeException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function exec(array $collection = null)
     {
         /** We can pass some array of middlewares and overwrite current pipeline if we needs */
 
-        if($collection == null) {
+        if ($collection == null) {
             $collection = $this->pipelineCollection;
         }
 
         $awaitingFor = null;
 
-        foreach($collection as $i => $middlewareInstance)
-        {
-            $middlewareShortName = (new \ReflectionClass($middlewareInstance))->getShortName();
+        foreach ($collection as $i => $middlewareInstance) {
+            $middlewareShortName = method_exists($middlewareInstance, 'getName') ? $middlewareInstance->getName() : (new ReflectionClass($middlewareInstance))->getShortName();
 
-            if($awaitingFor != null && $middlewareShortName != $awaitingFor) {
+            if ($awaitingFor != null && $middlewareShortName != $awaitingFor) {
                 throw new PipeException('Waiting for ' . $awaitingFor . ' in ' . $i . ' step of pipeline, got ' . $middlewareShortName);
             }
 
-            if(!($middlewareInstance instanceof MiddlewareInterface)) {
+            if (!($middlewareInstance instanceof MiddlewareInterface)) {
                 throw new PipeException($i . ' element of middlewares collection is not implements MiddlewareInterface');
             }
 

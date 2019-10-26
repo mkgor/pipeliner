@@ -20,14 +20,4 @@ class FirstMiddleware extends AbstractMiddleware
     {
         echo 'First middleware has done some stuff';
     }
-
-    /**
-     * Used when we want to specify what middleware should be next. If it is not - throwing exception
-     *
-     * @return string|null
-     */
-    public function next(): ?string
-    {
-        return 'SecondMiddleware';
-    }
 }

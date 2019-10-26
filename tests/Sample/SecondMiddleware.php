@@ -2,9 +2,7 @@
 
 namespace Test\Sample;
 
-use Pipeliner\Bag\BagInterface;
 use Pipeliner\Middleware\AbstractMiddleware;
-use Pipeliner\MiddlewareInterface;
 
 /**
  * Class SecondMiddleware
@@ -19,5 +17,10 @@ class SecondMiddleware extends AbstractMiddleware
     public function handle()
     {
         return true;
+    }
+
+    public function next(): ?string
+    {
+        return 'iAmClosureMiddleware';
     }
 }

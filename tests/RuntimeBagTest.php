@@ -2,12 +2,13 @@
 
 namespace Test;
 
+use PHPUnit\Framework\TestCase;
 use Pipeliner\Bag\RuntimeBag;
 
 /**
  * Class RuntimeBagTest
  */
-class RuntimeBagTest extends \PHPUnit\Framework\TestCase
+class RuntimeBagTest extends TestCase
 {
     /**
      * @var RuntimeBag
