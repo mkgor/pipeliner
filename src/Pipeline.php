@@ -1,9 +1,10 @@
 <?php
 
-namespace Pipeline;
+namespace Pipeliner;
 
-use Pipeline\Bag\BagInterface;
-use Pipeline\Exceptions\PipeException;
+use Pipeliner\Bag\BagInterface;
+use Pipeliner\Exceptions\PipeException;
+use Pipeliner\Middleware\MiddlewareInterface;
 
 /**
  * Class Pipeline

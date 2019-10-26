@@ -1,6 +1,6 @@
 <?php
 
-namespace Pipeline\Exceptions;
+namespace Pipeliner\Exceptions;
 
 /**
  * Class PipeException

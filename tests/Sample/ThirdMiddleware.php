@@ -2,20 +2,17 @@
 
 namespace Test\Sample;
 
-use Pipeline\Bag\BagInterface;
-use Pipeline\MiddlewareInterface;
+use Pipeliner\Bag\BagInterface;
+use Pipeliner\Middleware\AbstractMiddleware;
+use Pipeliner\MiddlewareInterface;
 
 /**
  * Class ThirdMiddleware
  *
  * @package Sample
  */
-class ThirdMiddleware implements MiddlewareInterface
+class ThirdMiddleware extends AbstractMiddleware
 {
-    /**
-     * @var BagInterface
-     */
-    private $bag;
 
     /**
      * Doing dome stuff and returns result or null, if it is making some action and don't returns something;
@@ -34,15 +31,5 @@ class ThirdMiddleware implements MiddlewareInterface
     public function next(): ?string
     {
         return 'FifthMiddleware';
-    }
-
-    /**
-     * Injecting bag into middleware so it can use results from previous middlewares
-     *
-     * @param BagInterface $bag
-     */
-    public function setBag(BagInterface $bag)
-    {
-        $this->bag = $bag;
     }
 }

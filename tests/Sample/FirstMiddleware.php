@@ -2,15 +2,14 @@
 
 namespace Test\Sample;
 
-use Pipeline\Bag\BagInterface;
-use Pipeline\MiddlewareInterface;
+use Pipeliner\Middleware\AbstractMiddleware;
 
 /**
  * Class FirstMiddleware
  *
  * @package Sample
  */
-class FirstMiddleware implements MiddlewareInterface
+class FirstMiddleware extends AbstractMiddleware
 {
     private $bag;
 
@@ -30,15 +29,5 @@ class FirstMiddleware implements MiddlewareInterface
     public function next(): ?string
     {
         return 'SecondMiddleware';
-    }
-
-    /**
-     * Injecting bag into middleware so it can use results from previous middlewares
-     *
-     * @param BagInterface $bag
-     */
-    public function setBag(BagInterface $bag)
-    {
-        $this->bag = $bag;
     }
 }

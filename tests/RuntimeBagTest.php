@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pipeline\Bag\RuntimeBag;
+use Pipeliner\Bag\RuntimeBag;
 
 /**
  * Class RuntimeBagTest

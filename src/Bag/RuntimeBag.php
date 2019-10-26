@@ -1,6 +1,6 @@
 <?php
 
-namespace Pipeline\Bag;
+namespace Pipeliner\Bag;
 
 /**
  * Class RuntimeBag

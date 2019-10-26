@@ -1,8 +1,8 @@
 <?php
 
-namespace Pipeline;
+namespace Pipeliner\Middleware;
 
-use Pipeline\Bag\BagInterface;
+use Pipeliner\Bag\BagInterface;
 
 /**
  * Interface MiddlewareInterface

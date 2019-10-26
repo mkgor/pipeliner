@@ -2,10 +2,10 @@
 
 namespace Test;
 
-use Pipeline\Bag\RuntimeBag;
-use Pipeline\Exceptions\PipeException;
-use Pipeline\MiddlewareInterface;
-use Pipeline\Pipeline;
+use Pipeliner\Bag\RuntimeBag;
+use Pipeliner\Exceptions\PipeException;
+use Pipeliner\Middleware\MiddlewareInterface;
+use Pipeliner\Pipeline;
 use Test\Sample\FirstMiddleware;
 use Test\Sample\InvalidMiddleware;
 use Test\Sample\SecondMiddleware;
@@ -42,7 +42,7 @@ class PipelineTest extends \PHPUnit\Framework\TestCase
 
     public function test__construct()
     {
-        $bag = new \Pipeline\Bag\RuntimeBag();
+        $bag = new \Pipeliner\Bag\RuntimeBag();
         $bag->put('Test', 'data');
 
         $this->assertEquals('data', (new Pipeline($bag))->getPipelineBag()->getLast());

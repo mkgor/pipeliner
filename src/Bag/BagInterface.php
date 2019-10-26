@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pipeline\Bag;
+namespace Pipeliner\Bag;
 
 /**
  * Interface BagInterface
