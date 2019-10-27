@@ -1,6 +1,6 @@
 {
     "name": "pixaye/pipeliner",
-    "description": "Simple middlewares provider",
+    "description": "Simple pipeline provider",
     "type": "library",
     "license": "MIT",
     "authors": [
