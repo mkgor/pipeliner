@@ -78,10 +78,10 @@ $this->bag->getLast();
 $this->bag->getAll();
 ```
 
-You can set your own bag
+You can set your own bag, just create one which implements BagInterface and that`s it!
 
 ```php
 $pipeliner = new Pipeliner\Pipeline();
-$pipeliner->setPipelineBag(new JsonBag());
+$pipeliner->setPipelineBag(new YourOwnBagClass());
 ...
 ```
