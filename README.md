@@ -77,3 +77,11 @@ $this->bag->get('NameOfMiddleware');
 $this->bag->getLast();
 $this->bag->getAll();
 ```
+
+You can set your own bag
+
+```php
+$pipeliner = new Pipeliner\Pipeline();
+$pipeliner->setPipelineBag(new JsonBag());
+...
+```
