@@ -66,3 +66,14 @@ $pipeline->pipe(new ExampleMiddleware())
          ->exec();
 
 ```
+
+Every middleware class have private $bag variable, which contains instance of BagInterface (RuntimeBag at the time, but you can make your own, for example you can contain data in database or in file). 
+
+It contains all results from previous middlewares and have four methods which allows you to get that data.
+
+```php
+$this->bag->put('NameOfMiddleware', $data);
+$this->bag->get('NameOfMiddleware');
+$this->bag->getLast();
+$this->bag->getAll();
+```
