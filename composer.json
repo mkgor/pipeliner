@@ -1,5 +1,5 @@
 {
-    "name": "mkgor/pipeline",
+    "name": "pixaye/pipeliner",
     "description": "Simple middlewares provider",
     "type": "library",
     "license": "MIT",
