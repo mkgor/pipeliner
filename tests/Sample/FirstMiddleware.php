@@ -18,6 +18,8 @@ class FirstMiddleware extends AbstractMiddleware
      */
     public function handle()
     {
-        echo 'First middleware has done some stuff';
+        for($i=0; $i < 100000; $i++) {
+            $result = $i * 1.25;
+        }
     }
 }

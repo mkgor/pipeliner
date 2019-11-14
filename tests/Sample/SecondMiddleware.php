@@ -16,6 +16,9 @@ class SecondMiddleware extends AbstractMiddleware
      */
     public function handle()
     {
+        for($i=0; $i < 200000; $i++) {
+            $result = $i * 2.25;
+        }
         return true;
     }
 

@@ -17,6 +17,8 @@ use ReflectionMethod;
  */
 class Pipeline
 {
+    use BenchmarkTrait;
+
     /**
      * @var MiddlewareInterface[]
      */
@@ -115,6 +117,7 @@ class Pipeline
             $collection = $this->pipelineCollection;
         }
 
+        $benchmarkArray = [];
         $awaitingFor = null;
 
         foreach ($collection as $i => $middlewareInstance) {
@@ -129,9 +132,15 @@ class Pipeline
             }
 
             $middlewareInstance->setBag($this->pipelineBag);
+
+            $this->start();
             $this->pipelineBag->put($middlewareShortName, $middlewareInstance->handle());
+
+            $benchmarkArray[$middlewareShortName] = $this->finish();
             $awaitingFor = $middlewareInstance->next();
         }
+
+        $this->generateReport($benchmarkArray);
 
         return $this->getPipelineBag();
     }

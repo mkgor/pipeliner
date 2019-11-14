@@ -14,6 +14,11 @@ use Test\Sample\InvalidMiddleware;
 use Test\Sample\SecondMiddleware;
 use Test\Sample\ThirdMiddleware;
 
+/**
+ * Class PipelineTest
+ * @package Test
+ * @runTestsInSeparateProcesses
+ */
 class PipelineTest extends TestCase
 {
     /**
@@ -26,6 +31,10 @@ class PipelineTest extends TestCase
      */
     public function setUp(): void
     {
+        if(!defined('PIPELINER_REPORTING')) {
+            define('PIPELINER_REPORTING', 1);
+        }
+
         $this->pipeline = new Pipeline(new RuntimeBag());
 
         $this->pipeline->pipe(new FirstMiddleware());

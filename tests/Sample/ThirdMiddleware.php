@@ -17,6 +17,9 @@ class ThirdMiddleware extends AbstractMiddleware
      */
     public function handle()
     {
+        for($i=0; $i < 10000; $i++) {
+            $result = $i * 1.852;
+        }
         return true;
     }
 
