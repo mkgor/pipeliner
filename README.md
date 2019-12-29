@@ -3,6 +3,9 @@
 ![](https://img.shields.io/packagist/l/pixaye/pipeliner)
 ![](https://img.shields.io/packagist/v/pixaye/pipeliner)
 ![](https://img.shields.io/badge/php->%3D7.1-blue)  
+
+![Logo](https://i.imgur.com/DLn6NXJ.jpg)
+
 Pipeliner is a simple pipeline implementation, which allows you to decompose any big action in your application into small and replacable parts, so you can change some behavior in this action in runtime. It makes your application simple to test, easy to find bugs/identify problematic areas and makes it really flexible.
 
 To start using pipeliner, just run the composer command
