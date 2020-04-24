@@ -1,7 +1,7 @@
 # Pipeliner
 ![codecov](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![](https://img.shields.io/packagist/l/pixaye/pipeliner)
-![](https://img.shields.io/packagist/v/pixaye/pipeliner)
+![](https://img.shields.io/packagist/l/mkgor/pipeliner)
+![](https://img.shields.io/packagist/v/mkgor/pipeliner)
 ![](https://img.shields.io/badge/php->%3D7.1-blue)  
 
 ![Logo](https://i.imgur.com/DLn6NXJ.jpg)
@@ -10,7 +10,7 @@ Pipeliner is a simple pipeline implementation, which allows you to decompose any
 
 To start using pipeliner, just run the composer command
 ```bash
-composer require pixaye/pipeliner
+composer require mkgor/pipeliner
 ```
 
 # Usage
